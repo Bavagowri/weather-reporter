@@ -1,0 +1,82 @@
+/* FiveDayForecast Component Styles */
+.forecast-container {
+  padding: 24px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.forecast-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.forecast-day {
+  background-color: #b5d7eca3;
+  border-radius: 4px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(18, 57, 76, 0.744);
+}
+
+.forecast-day-date {
+  font-weight: 500;
+}
+
+.forecast-day-icon {
+  width: 32px;
+  height: 32px;
+  margin: 8px 0;
+}
+
+.forecast-day-temp {
+  font-weight: 600;
+}
+
+.forecast-day-temp-details {
+  font-size: 12px;
+  font-weight: 200;
+}
+
+.forecast-loading {
+  text-align: center;
+}
+
+.weather-loading-svg {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto 8px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.weather-loading-svg circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4;
+}
+
+.weather-loading-svg path {
+  fill: currentColor;
+}
+
+.weather-error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 8px;
+}

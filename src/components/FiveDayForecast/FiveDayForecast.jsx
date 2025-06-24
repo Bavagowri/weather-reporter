@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './FiveDayForecast.css';
 
 function FiveDayForecast({ lat, lon, city }) {
   const [forecast, setForecast] = useState(null);
@@ -7,7 +8,7 @@ function FiveDayForecast({ lat, lon, city }) {
   const [error, setError] = useState(null);
 
   const fetchForecast = async () => {
-    if (!lat || !lon) {
+    if (!lat || lon) {
       setLoading(false);
       return;
     }
@@ -36,27 +37,24 @@ function FiveDayForecast({ lat, lon, city }) {
   }, [lat, lon]);
 
   return (
-    <div className="p-6 bg-white rounded-lg shadow-md">
-      <h3 className="text-xl font-semibold mb-4">5-Day Forecast for {city}</h3>
+    <div className="forecast-container">
+      <h3 className="forecast-title">5-Day Forecast for {city}</h3>
       {loading && (
-        <div className="text-center">
-          <svg className="animate-spin h-5 w-5 mx-auto mb-2" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-            <path fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+        <div className="forecast-loading">
+          <svg className="weather-loading-svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M4 12a8 8 0 018-8v8H4z" />
           </svg>
           <p>Loading...</p>
         </div>
       )}
-      {error && <p className="text-center text-red-500">{error}</p>}
+      {error && <p className="weather-error">{error}</p>}
       {forecast && (
-        <div className="grid grid-cols-1 gap-4">
+        <div className="forecast-grid">
           {forecast.map((day) => (
-            <div
-              key={day.dt}
-              className="bg-gray-100 rounded-md p-4 flex items-center justify-between shadow-sm"
-            >
+            <div key={day.dt} className="forecast-day">
               <div>
-                <p className="font-medium">
+                <p className="forecast-day-date">
                   {new Date(day.dt * 1000).toLocaleDateString('en-US', {
                     weekday: 'short',
                     month: 'short',
@@ -67,15 +65,15 @@ function FiveDayForecast({ lat, lon, city }) {
                   <img
                     src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
                     alt="Weather icon"
-                    className="w-8 h-8 my-2"
+                    className="forecast-day-icon"
                   />
                 )}
                 <p>{day.weather[0].description}</p>
               </div>
               <div className="text-right">
-                <p className="font-semibold">{Math.round(day.temp.day)}°C</p>
-                <p className="text-sm">High: {Math.round(day.temp.max)}°C</p>
-                <p className="text-sm">Low: {Math.round(day.temp.min)}°C</p>
+                <p className="forecast-day-temp">{Math.round(day.temp.day)}°C</p>
+                <p className="forecast-day-temp-details">High: {Math.round(day.temp.max)}°C</p>
+                <p className="forecast-day-temp-details">Low: {Math.round(day.temp.min)}°C</p>
               </div>
             </div>
           ))}
