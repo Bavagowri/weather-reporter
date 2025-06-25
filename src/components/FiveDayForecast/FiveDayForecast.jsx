@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './FiveDayForecast.css';
+import { ReactSVG } from 'react-svg';
+import { weatherIconMap, getWeatherIcon } from '../../utils/WeatherIcons';
+
 
 function FiveDayForecast({ lat, lon, city }) {
   const [forecast, setForecast] = useState(null);
@@ -61,13 +64,7 @@ function FiveDayForecast({ lat, lon, city }) {
                     day: 'numeric',
                   })}
                 </p>
-                {day.weather?.[0]?.icon && (
-                  <img
-                    src={`http://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
-                    alt="Weather icon"
-                    className="forecast-day-icon"
-                  />
-                )}
+                <ReactSVG src={getWeatherIcon(day.weather?.[0]?.description)} alt="Weather icon" className="forecast-day-icon" />
                 <p>{day.weather[0].description}</p>
               </div>
               <div className="text-right">

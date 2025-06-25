@@ -37,9 +37,15 @@
 }
 
 .forecast-day-icon {
-  width: 32px;
-  height: 32px;
+  width: 48px; /* Increased from 32px */
+  height: 48px; /* Increased from 32px */
   margin: 8px 0;
+}
+
+.forecast-day-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block; /* Ensure proper rendering */
 }
 
 .forecast-day-temp {

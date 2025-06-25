@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import FiveDayForecast from '../FiveDayForecast/FiveDayForecast';
 import Homebg from '../../assets/hero.png';
-import './DisplayWeather.css'
+import './DisplayWeather.css';
+import { ReactSVG } from 'react-svg';
+import { weatherIconMap, getWeatherIcon } from '../../utils/WeatherIcons';
 
 function DisplayWeather() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [defaultValue, setdefaultValue] = useState('Colombo,lk');
+  const [defaultValue, setdefaultValue] = useState('Colombo');
   const [inputName, setInputName] = useState('');
   const [inputError, setInputError] = useState(null);
   const [coordinates, setCoordinates] = useState({ lat: null, lon: null, city: '' });
@@ -90,7 +92,7 @@ function DisplayWeather() {
                 type="text"
                 value={inputName}
                 onChange={(e) => setInputName(e.target.value)}
-                placeholder="Enter city or country (e.g., Colombo,lk)"
+                placeholder="Enter city or country (e.g., Colombo / London)"
                 className="weather-input"
               />
               <button
@@ -117,19 +119,23 @@ function DisplayWeather() {
           {error && <p className="weather-error">{error}</p>}
           {weather && (
             <div className='weather-current'>
-              <h3 className="weather-current-title">Weather in {weather.city}</h3>
-              {weather.weather?.[0]?.icon && (
-                <img
-                  src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                  alt="Weather icon"
-                  className="weather-icon"
-                />
-              )}
+              <div className='weather-current-left'>
+                <div className='weather-current-card'>
+                  <h3 className="weather-current-title">Weather in {weather.city}</h3>
+                  <ReactSVG src={getWeatherIcon(weather.weather?.[0]?.description)} className="weather-icon" />
               <p>Temperature: {weather.temp}°C</p>
-              <p>Humidity: {weather.humidity}%</p>
-              <p>Wind Speed: {weather.wind_speed} m/s</p>
-              <p>Pressure: {weather.pressure} hPa</p>
-              <p>UV Index: {weather.uvi}</p>
+                </div>
+              </div>
+      
+              <div className='weather-current-right'>
+                <div className='weather-current-card'>
+                  <p>Humidity: {weather.humidity}%</p>
+                  <p>Wind Speed: {weather.wind_speed} m/s</p>
+                  <p>Pressure: {weather.pressure} hPa</p>
+                  <p>UV Index: {weather.uvi}</p>
+                </div>
+              </div>
+
             </div>
           )}
           <FiveDayForecast lat={coordinates.lat} lon={coordinates.lon} city={coordinates.city} />
