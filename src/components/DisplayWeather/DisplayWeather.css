@@ -81,10 +81,10 @@
   background-color: #5988ef;
 }
 
-.weather-button:disabled {
+/* .weather-button:disabled {
   background-color: #93c5fd;
   cursor: not-allowed;
-}
+} */
 
 .weather-error {
   color: #ef4444;

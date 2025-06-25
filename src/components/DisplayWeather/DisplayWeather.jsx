@@ -17,8 +17,8 @@ function DisplayWeather() {
     if (!input.trim()) {
       return 'City or country name cannot be empty';
     }
-    if (!/^[a-zA-Z\s,]+$/.test(input)) {
-      return 'Please enter a valid city or country name (letters and commas only)';
+    if (!/^[a-zA-Z\s]+$/.test(input)) {
+      return 'Please enter a valid city or country name (letters only)';
     }
     return null;
   };
@@ -45,10 +45,11 @@ function DisplayWeather() {
       }
 
       const { lat, lon, name } = geoResponse.data[0];
+      console.log('Setting coordinates:', { lat, lon, name }); // Debug log
       setCoordinates({ lat, lon, city: name });
 
       const weatherResponse = await axios.get(
-        `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}&units=metric&exclude=hourly,minutely`
       );
 
       setWeather({ ...weatherResponse.data.current, city: name });
@@ -62,7 +63,7 @@ function DisplayWeather() {
 
   useEffect(() => {
     fetchingWeather(defaultValue);
-  }, []);
+  }, []); // Empty dependency array, run once on mount
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -83,7 +84,7 @@ function DisplayWeather() {
       <div className="weather-content">
         <div className="weather-header">
           <h2 className="weather-title">Weather Reporter</h2>
-          <form onSubmit={handleSearch} className="mb-6">
+          <form onSubmit={handleSearch} className="weather-form">
             <div className="weather-form-input-group">
               <input
                 type="text"
@@ -100,10 +101,10 @@ function DisplayWeather() {
                 Search
               </button>
             </div>
-            {inputError && <p className="tweather-error">{inputError}</p>}
+            {inputError && <p className="weather-error">{inputError}</p>}
           </form>
         </div>
-        <div className="weather-scrollable">
+        <div className="weather-details-container">
           {loading && (
             <div className="weather-loading">
               <svg className="weather-loading-svg" viewBox="0 0 24 24">
