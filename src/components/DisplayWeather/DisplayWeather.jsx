@@ -6,6 +6,14 @@ import './DisplayWeather.css';
 import { ReactSVG } from 'react-svg';
 import { weatherIconMap, getWeatherIcon } from '../../utils/WeatherIcons';
 
+// Import new Flaticon SVG icons
+import humidityIcon from '../../assets/weather-icons/humidity.svg';
+import windSpeedIcon from '../../assets/weather-icons/wind-speed.svg';
+import pressureIcon from '../../assets/weather-icons/pressure.svg';
+import uvIndexIcon from '../../assets/weather-icons/uv-index.svg';
+import visibility from '../../assets/weather-icons/visibility.svg'
+
+
 function DisplayWeather() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -123,16 +131,30 @@ function DisplayWeather() {
                 <div className='weather-current-card'>
                   <h3 className="weather-current-title">Weather in {weather.city}</h3>
                   <ReactSVG src={getWeatherIcon(weather.weather?.[0]?.description)} className="weather-icon" />
-              <p>Temperature: {weather.temp}°C</p>
+                  <p className='weather-current-temp'>{weather.temp}°C</p>
+                  <p className='weather-current-temp text'>Feels like {weather.feels_like}°C</p>
                 </div>
               </div>
       
               <div className='weather-current-right'>
                 <div className='weather-current-card'>
-                  <p>Humidity: {weather.humidity}%</p>
-                  <p>Wind Speed: {weather.wind_speed} m/s</p>
-                  <p>Pressure: {weather.pressure} hPa</p>
-                  <p>UV Index: {weather.uvi}</p>
+                  <p className="weather-current-details">
+                    <ReactSVG src={humidityIcon} className="weather-detail-icon" /> Humidity: {weather.humidity}%
+                  </p>
+                  <p className="weather-current-details">
+                    <ReactSVG src={windSpeedIcon} className="weather-detail-icon" /> Wind Speed: {weather.wind_speed} m/s
+                  </p>
+                  <p className="weather-current-details">
+                    <ReactSVG src={pressureIcon} className="weather-detail-icon" /> Pressure: {weather.pressure} hPa
+                  </p>
+                  <p className="weather-current-details">
+                    <ReactSVG src={uvIndexIcon} className="weather-detail-icon" /> UV Index: {weather.uvi}
+                  </p>
+                  <p className="weather-current-details">
+                    <ReactSVG src={visibility} className="weather-detail-icon" /> Visibility: {weather.visibility}
+                  </p>
+
+
                 </div>
               </div>
 

@@ -1,4 +1,5 @@
 /* DisplayWeather Component Styles */
+/* This is the main weather container—stretching the full height with a cool background image. I’ve added some padding to keep things comfy! */
 .weather-container {
   min-height: 100vh;
   width: 100%;
@@ -11,6 +12,7 @@
   margin: 0;
 }
 
+/* A subtle overlay to make the text pop against the background—nothing too heavy! */
 .weather-overlay {
   position: absolute;
   top: 0;
@@ -20,6 +22,7 @@
   background-color: rgba(0, 0, 0, 0.071);
 }
 
+/* The content wrapper—keeps everything centered and nicely padded. Max width ensures it doesn’t get too wild on big screens! */
 .weather-content {
   position: relative;
   z-index: 10;
@@ -29,34 +32,38 @@
   padding: 24px;
 }
 
+/* Sticky header—stays at the top with a light blue tint. I added some padding to make it feel snug! */
 .weather-header {
   position: sticky;
   top: 0;
   background-color: rgba(116, 193, 248, 0.444);
   z-index: 20;
-  padding-bottom: 16px;
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
 }
 
+/* The main title—big, bold, and centered. That dark blue color feels nice and authoritative! */
 .weather-title {
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 32px;
   text-align: center;
   color: rgb(6, 40, 67);
 }
 
+/* The form section—let’s keep it spaced out for easy input. */
 .weather-form {
   margin-bottom: 24px;
 }
 
+/* Flexbox for the input and button—gap makes them feel separated but friendly! */
 .weather-form-input-group {
   display: flex;
   gap: 32px;
 }
 
+/* Input field styling—simple with a border that lights up when focused. */
 .weather-input {
   flex: 1;
   padding: 8px;
@@ -67,9 +74,10 @@
 .weather-input:focus {
   outline: none;
   border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* A nice blue glow when you click! */
 }
 
+/* Button styling—blue with a hover effect to make it feel interactive. */
 .weather-button {
   padding: 8px 16px;
   background-color: #3b82f6;
@@ -83,16 +91,19 @@
   background-color: #5988ef;
 }
 
+/* Error message—red to stand out if something goes wrong. */
 .weather-error {
   color: #ef4444;
   font-size: 14px;
   margin-top: 8px;
 }
 
+/* Loading state—centered and simple while we wait for data. */
 .weather-loading {
   text-align: center;
 }
 
+/* Loading SVG animation—small and spinny to keep things lively! */
 .weather-loading-svg {
   width: 20px;
   height: 20px;
@@ -116,6 +127,7 @@
   fill: currentColor;
 }
 
+/* The current weather layout—flexbox to split left and right sections. */
 .weather-current {
   display: flex;
   justify-content: space-between;
@@ -125,28 +137,49 @@
 
 .weather-current-left,
 .weather-current-right {
-  flex: 1; 
+  flex: 1;
   display: flex;
 }
 
+/* Card styling for weather details—rounded and semi-transparent with padding. */
 .weather-current-card {
-  background-color: rgba(60, 133, 197, 0.633);
+  background-color: rgba(14, 181, 247, 0.573);
   border-radius: 20px;
-  padding: 20px; 
-  width: 100%; 
+  padding: 20px;
+  width: 100%;
   box-sizing: border-box;
-  text-align: left;
+  text-align: center;
 }
 
-.weather-current-title {
-  font-size: 20px;
+/* Temperature text—big and bold to catch the eye! */
+.weather-current-temp {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #022236;
+  text-align: center;
+}
+
+/* General text styling—nice and prominent with a dark color. */
+.text {
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 8px;
+  color: #022236;
+  text-align: center;
 }
 
+/* Title for the current weather—matches the temp style for consistency. */
+.weather-current-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #022236;
+}
+
+/* Main weather icon—good size to stand out as the star of the show! */
 .weather-icon {
-  width: 128px; /* Increased size for SVG */
-  height: 128px; /* Increased size for SVG */
+  width: 128px;
+  height: 128px;
   margin: 0 auto 16px;
 }
 
@@ -155,7 +188,33 @@
   height: 100%;
 }
 
+/* Details like humidity and wind—flex to align icons and text. */
+.weather-current-details {
+  color: #022236;
+  display: flex;
+  gap: 1rem;
+  margin: 4px 0;
+  font-size: 16px;
+  text-align: center;
+  line-height: 4rem;
+}
+
+/* Detail icons—larger size to match the card’s vibe. */
+.weather-detail-icon {
+  width: 64px;
+  height: 64px;
+  margin-left: 25%;
+}
+
+.weather-detail-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  color: #333;
+}
+
 @media (min-width: 768px) {
+  /* Bigger screens get a slightly larger icon and more padding—looks great on desktops! */
   .weather-icon {
     width: 150px;
     height: 150px;

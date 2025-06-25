@@ -65,7 +65,7 @@ function FiveDayForecast({ lat, lon, city }) {
                   })}
                 </p>
                 <ReactSVG src={getWeatherIcon(day.weather?.[0]?.description)} alt="Weather icon" className="forecast-day-icon" />
-                <p>{day.weather[0].description}</p>
+                <p className="forecast-day-temp-details">{day.weather[0].description}</p>
               </div>
               <div className="text-right">
                 <p className="forecast-day-temp">{Math.round(day.temp.day)}°C</p>

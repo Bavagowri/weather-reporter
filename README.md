@@ -1,12 +1,35 @@
-# React + Vite
+# Weather Reporter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Weather Reporter**, a sleek and responsive weather application built with React and Vite! This app allows you to check the current weather and a 5-day forecast for any city or country using the OpenWeatherMap API. It features custom weather icons from Flaticon, styled with plain CSS, and a user-friendly interface.
 
-Currently, two official plugins are available:
+- **Current Date and Time**: 07:08 PM +0530, Wednesday, June 25, 2025
+- **Live Demo**: [Insert link if deployed] (e.g., https://your-weather-app.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Display current weather (temperature, feels like, humidity, wind speed, pressure, UV index, visibility) for a searched city.
+- 5-day weather forecast (excluding today) with daily temperature highs and lows.
+- Interactive search bar with input validation.
+- Loading and error states for a smooth user experience.
+- Custom SVG weather icons sourced from Flaticon.
+- Responsive design with a modern, ocean-inspired color scheme.
 
-## Expanding the ESLint configuration
+## Technologies Used
+- **React**: A JavaScript library for building the user interface.
+- **Vite**: A fast build tool and development server for modern web projects.
+- **Axios**: For making HTTP requests to the OpenWeatherMap API.
+- **ReactSVG**: To render SVG icons dynamically.
+- **Plain CSS**: For styling with a custom, hand-crafted approach.
+- **OpenWeatherMap API**: Provides real-time weather data.
+- **Flaticon**: Source of custom weather and detail icons.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Prerequisites
+- Node.js (v14.x or higher)
+- npm (comes with Node.js)
+- An OpenWeatherMap API key (sign up at [openweathermap.org](https://openweathermap.org/))
+
+## Installation
+
+### Clone the Repository
+```bash
+git clone https://github.com/your-username/weather-reporter.git
+cd weather-reporter
