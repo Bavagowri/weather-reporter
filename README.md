@@ -3,7 +3,7 @@
 Welcome to **Weather Reporter**, a sleek and responsive weather application built with React and Vite! This app allows you to check the current weather and a 5-day forecast for any city or country using the OpenWeatherMap API. It features custom weather icons from Flaticon, styled with plain CSS, and a user-friendly interface.
 
 - **Current Date and Time**: 07:08 PM +0530, Wednesday, June 25, 2025
-- **Live Demo**: [Insert link if deployed] (e.g., https://your-weather-app.netlify.app)
+- **Live Demo**: https://weather-reporter-sigma-three.vercel.app/
 
 ## Features
 - Display current weather (temperature, feels like, humidity, wind speed, pressure, UV index, visibility) for a searched city.
