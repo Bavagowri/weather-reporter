@@ -1,18 +1,18 @@
 /* DisplayWeather Component Styles */
-/* This is the main weather container—stretching the full height with a cool background image. I’ve added some padding to keep things comfy! */
+/* This is the main weather container—stretching the full height with a cool background image. I’ve added some padding to keep things comfy! For mobile, it’s simple and full-width, scaling up nicely on bigger screens. */
 .weather-container {
   min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
-  padding: 16px;
+  padding: 1rem; /* Adjusted for mobile */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   margin: 0;
 }
 
-/* A subtle overlay to make the text pop against the background—nothing too heavy! */
+/* A subtle overlay to make the text pop against the background—nothing too heavy! Keeps visibility consistent across all screen sizes. */
 .weather-overlay {
   position: absolute;
   top: 0;
@@ -22,53 +22,55 @@
   background-color: rgba(0, 0, 0, 0.071);
 }
 
-/* The content wrapper—keeps everything centered and nicely padded. Max width ensures it doesn’t get too wild on big screens! */
+/* The content wrapper—keeps everything centered and nicely padded. Max width ensures it doesn’t get too wild on big screens! Scales padding for smaller devices. */
 .weather-content {
   position: relative;
   z-index: 10;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
+  padding: 1rem; /* Mobile-friendly padding */
 }
 
-/* Sticky header—stays at the top with a light blue tint. I added some padding to make it feel snug! */
+/* Sticky header—stays at the top with a light blue tint. I added some padding to make it feel snug! Adjusts for smaller screens to avoid overflow. */
 .weather-header {
   position: sticky;
   top: 0;
   background-color: rgba(116, 193, 248, 0.444);
   z-index: 20;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  padding: 1rem; /* Reduced for mobile */
+  border-radius: 8px; /* Slightly smaller radius for mobile */
+  margin-bottom: 1rem;
 }
 
-/* The main title—big, bold, and centered. That dark blue color feels nice and authoritative! */
+/* The main title—big, bold, and centered. That dark blue color feels nice and authoritative! Scales down for smaller screens to fit nicely. */
 .weather-title {
-  font-size: 2rem;
+  font-size: 1.5rem; /* Base size for mobile */
   font-weight: bold;
-  margin-bottom: 32px;
+  margin-bottom: 1.5rem;
   text-align: center;
   color: rgb(6, 40, 67);
 }
 
-/* The form section—let’s keep it spaced out for easy input. */
+/* The form section—let’s keep it spaced out for easy input. Stacks vertically on mobile for better touch interaction. */
 .weather-form {
-  margin-bottom: 24px;
+  margin-bottom: 1rem;
 }
 
-/* Flexbox for the input and button—gap makes them feel separated but friendly! */
+/* Flexbox for the input and button—gap makes them feel separated but friendly! Stacks on mobile, side-by-side on tablets/desktops. */
 .weather-form-input-group {
   display: flex;
-  gap: 32px;
+  gap: 1rem;
+  flex-direction: column; /* Stack on mobile */
 }
 
-/* Input field styling—simple with a border that lights up when focused. */
+/* Input field styling—simple with a border that lights up when focused. Adjusted padding for touch screens. */
 .weather-input {
   flex: 1;
-  padding: 8px;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1rem; /* Readable on mobile */
 }
 
 .weather-input:focus {
@@ -77,37 +79,41 @@
   box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); /* A nice blue glow when you click! */
 }
 
-/* Button styling—blue with a hover effect to make it feel interactive. */
+/* Button styling—blue with a hover effect to make it feel interactive. Smaller padding for mobile balance. */
 .weather-button {
-  padding: 8px 16px;
+  padding: 0.75rem 1rem;
   background-color: #3b82f6;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 1rem; /* Consistent with input */
+  width: 100%; /* Full width on mobile */
 }
 
 .weather-button:hover {
   background-color: #5988ef;
 }
 
-/* Error message—red to stand out if something goes wrong. */
+/* Error message—red to stand out if something goes wrong. Keeps font size readable on all devices. */
 .weather-error {
   color: #ef4444;
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-/* Loading state—centered and simple while we wait for data. */
-.weather-loading {
+  font-size: 0.875rem; /* Slightly smaller for mobile */
+  margin-top: 0.5rem;
   text-align: center;
 }
 
-/* Loading SVG animation—small and spinny to keep things lively! */
+/* Loading state—centered and simple while we wait for data. Scales down for smaller screens. */
+.weather-loading {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* Loading SVG animation—small and spinny to keep things lively! Adjusts size for mobile readability. */
 .weather-loading-svg {
-  width: 20px;
-  height: 20px;
-  margin: 0 auto 8px;
+  width: 16px; /* Smaller for mobile */
+  height: 16px;
+  margin: 0 auto 0.5rem;
   animation: spin 1s linear infinite;
 }
 
@@ -127,12 +133,13 @@
   fill: currentColor;
 }
 
-/* The current weather layout—flexbox to split left and right sections. */
+/* The current weather layout—flexbox to split left and right sections. Stacks on mobile, side-by-side on larger screens. */
 .weather-current {
   display: flex;
   justify-content: space-between;
-  gap: 20px; /* Space between left and right sections */
-  margin-bottom: 20px;
+  gap: 1rem; /* Reduced gap for mobile */
+  margin-bottom: 1rem;
+  flex-direction: column; /* Stack on mobile */
 }
 
 .weather-current-left,
@@ -141,46 +148,46 @@
   display: flex;
 }
 
-/* Card styling for weather details—rounded and semi-transparent with padding. */
+/* Card styling for weather details—rounded and semi-transparent with padding. Adjusts padding for mobile. */
 .weather-current-card {
   background-color: rgba(14, 181, 247, 0.573);
-  border-radius: 20px;
-  padding: 20px;
+  border-radius: 12px; /* Slightly smaller for mobile */
+  padding: 1rem;
   width: 100%;
   box-sizing: border-box;
   text-align: center;
 }
 
-/* Temperature text—big and bold to catch the eye! */
+/* Temperature text—big and bold to catch the eye! Scales down for mobile to fit. */
 .weather-current-temp {
-  font-size: 2rem;
+  font-size: 1.5rem; /* Reduced from 2rem */
   font-weight: 600;
   color: #022236;
   text-align: center;
 }
 
-/* General text styling—nice and prominent with a dark color. */
+/* General text styling—nice and prominent with a dark color. Scales for readability. */
 .text {
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* Reduced from 1.5rem */
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   color: #022236;
   text-align: center;
 }
 
-/* Title for the current weather—matches the temp style for consistency. */
+/* Title for the current weather—matches the temp style for consistency. Scales down for mobile. */
 .weather-current-title {
-  font-size: 2rem;
+  font-size: 1.5rem; /* Reduced from 2rem */
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
   color: #022236;
 }
 
-/* Main weather icon—good size to stand out as the star of the show! */
+/* Main weather icon—good size to stand out as the star of the show! Scales for mobile. */
 .weather-icon {
-  width: 128px;
-  height: 128px;
-  margin: 0 auto 16px;
+  width: 96px; /* Reduced from 128px */
+  height: 96px;
+  margin: 0 auto 1rem;
 }
 
 .weather-icon svg {
@@ -188,22 +195,24 @@
   height: 100%;
 }
 
-/* Details like humidity and wind—flex to align icons and text. */
+/* Details like humidity and wind—flex to align icons and text. Adjusts for mobile stacking. */
 .weather-current-details {
   color: #022236;
   display: flex;
-  gap: 1rem;
-  margin: 4px 0;
-  font-size: 16px;
+  gap: 0.5rem; 
+  margin: 0.25rem 0;
+  font-size: 0.875rem; /* Smaller for mobile */
   text-align: center;
-  line-height: 4rem;
+  line-height: 2rem; 
+  flex-direction: column; 
+  align-items: center; 
 }
 
-/* Detail icons—larger size to match the card’s vibe. */
+/* Detail icons—larger size to match the card’s vibe. Scales down for mobile. */
 .weather-detail-icon {
-  width: 64px;
-  height: 64px;
-  margin-left: 25%;
+  width: 62px; 
+  height: 62px;
+  margin-left: 0;
 }
 
 .weather-detail-icon svg {
@@ -213,18 +222,111 @@
   color: #333;
 }
 
+/* Media Queries for Larger Screens */
+/* Tablets and up (min-width: 480px) - Start improving layout */
+@media (min-width: 480px) {
+  .weather-title {
+    font-size: 1.75rem;
+  }
+  .weather-form-input-group {
+    flex-direction: row; /* Side-by-side input and button */
+  }
+  .weather-button {
+    width: auto; 
+  }
+  .weather-current-details {
+    flex-direction: row; /* Horizontal layout */
+    line-height: 2.5rem;
+    font-size: 1rem;
+  }
+  .weather-detail-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Desktops and up (min-width: 768px) - Enhance for larger screens */
 @media (min-width: 768px) {
-  /* Bigger screens get a slightly larger icon and more padding—looks great on desktops! */
+  .weather-container {
+    padding: 2rem;
+  }
+  .weather-content {
+    padding: 2rem;
+  }
+  .weather-header {
+    padding: 1.5rem;
+  }
+  .weather-title {
+    font-size: 2rem;
+  }
+  .weather-form-input-group {
+    gap: 2rem;
+  }
+  .weather-input {
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+  .weather-button {
+    padding: 1rem 1.5rem;
+    font-size: 1.125rem;
+  }
+  .weather-error {
+    font-size: 1rem;
+  }
+  .weather-current {
+    flex-direction: row; /* Side-by-side cards */
+    gap: 2rem;
+  }
+  .weather-current-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+  .weather-current-temp {
+    font-size: 2rem;
+  }
+  .text {
+    font-size: 1.5rem;
+  }
+  .weather-current-title {
+    font-size: 2rem;
+  }
+  .weather-icon {
+    width: 128px;
+    height: 128px;
+  }
+  .weather-current-details {
+    gap: 1rem;
+    font-size: 1.125rem;
+    line-height: 3rem;
+  }
+  .weather-detail-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .weather-loading-svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Large desktops (min-width: 1024px) - Fine-tune for extra space */
+@media (min-width: 1024px) {
+  .weather-content {
+    max-width: 1400px;
+  }
+  .weather-current-card {
+    padding: 2rem;
+  }
   .weather-icon {
     width: 150px;
     height: 150px;
   }
-
-  .weather-current {
-    gap: 40px;
+  .weather-current-details {
+    font-size: 1.25rem;
+    line-height: 4rem;
   }
-
-  .weather-current-card {
-    padding: 30px;
+  .weather-detail-icon {
+    width: 64px;
+    height: 64px;
   }
 }

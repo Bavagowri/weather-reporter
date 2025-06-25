@@ -1,53 +1,53 @@
 /* FiveDayForecast Component Styles */
-/*  This is the main container for the 5-day forecast. I’ve added some padding and a nice rounded edge to make it look cozy. The semi-transparent background gives it a cool ocean vibe, and that subtle shadow? Just a little lift to make it pop! */
+/* This is the main container for the 5-day forecast. I’ve added some padding and a nice rounded edge to make it look cozy. The semi-transparent background gives it a cool ocean vibe, and that subtle shadow? Just a little lift to make it pop! For mobile, we’ll scale it down to fit comfortably. */
 .forecast-container {
-  padding: 24px;
+  padding: 1rem; 
   border-radius: 8px;
-  margin-top: 20px;
-  min-height: 200px;
+  margin-top: 1rem; 
+  min-height: 150px; 
   background-color: rgba(3, 36, 50, 0.303); /* A nice deep blue tint—feels like a calm sea! */
   box-shadow: 0 1px 3px rgba(181, 179, 179, 0.1); /* A soft shadow to give it some depth, not too dramatic! */
 }
 
-/* This is the title—let’s make it bold and big to grab attention. I chose beige to contrast nicely with the dark background. */
+/* This is the title—let’s make it bold and big to grab attention. I chose beige to contrast nicely with the dark background. Scales down for smaller screens to avoid overflow. */
 .forecast-title {
-  font-size: 2rem;
+  font-size: 1.5rem; 
   font-weight: bold;
-  margin-bottom: 32px;
+  margin-bottom: 1rem; 
   text-align: center;
   color: beige;
 }
 
-/* Time to set up the grid! I’ve gone with 5 equal columns to show each day neatly. The gap adds some breathing room between cards. */
+/* Time to set up the grid! I’ve gone with 5 equal columns to show each day neatly. The gap adds some breathing room between cards. On mobile, we’ll stack them for better readability. */
 .forecast-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 0.5rem;
   width: 100%;
 }
 
-/* Each day card gets a light blue background with rounded corners—feels fresh! The flexbox here keeps everything aligned nicely. */
+/* Each day card gets a light blue background with rounded corners—feels fresh! The flexbox here keeps everything aligned nicely. Adjusts size for smaller screens. */
 .forecast-day {
   background-color: rgba(14, 181, 247, 0.573); /* A playful sky-blue shade with some transparency! */
-  border-radius: 20px;
-  padding: 16px;
+  border-radius: 12px; 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* A bit more shadow here for that 3D effect! */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow for mobile */
 }
 
-/* Dates should stand out, so I made them bold and matched the beige color for consistency. */
+/* Dates should stand out, so I made them bold and matched the beige color for consistency. Scales for readability. */
 .forecast-day-date {
   font-weight: 600;
   color: beige;
+  font-size: 0.875rem; 
 }
 
-/* The weather icon—let’s give it a decent size so it’s easy to see. I’ve ensured it scales properly with SVG magic! */
+/* The weather icon—let’s give it a decent size so it’s easy to see. I’ve ensured it scales properly with SVG magic! Smaller on mobile to fit. */
 .forecast-day-icon {
-  width: 48px;
-  height: 48px;
-  margin: 8px 0;
+  width: 32px; 
+  height: 32px;
+  margin: 0.25rem 0; 
 }
 
 /* This ensures the SVG fills the container nicely—no stretching, just perfect rendering! */
@@ -57,29 +57,31 @@
   display: block; /* A little trick to avoid any weird spacing issues! */
 }
 
-/* Temperature text gets bold to catch the eye, and beige keeps the theme going. */
+/* Temperature text gets bold to catch the eye, and beige keeps the theme going. Scales down for mobile. */
 .forecast-day-temp {
   font-weight: 600;
   color: beige;
+  font-size: 1rem;
 }
 
-/* Details like high/low temps are smaller—keeps things tidy and readable. */
+/* Details like high/low temps are smaller—keeps things tidy and readable. Scales for smaller screens. */
 .forecast-day-temp-details {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: beige;
 }
 
-/* Loading state—let’s center it and keep the text dark for contrast while the data loads. */
+/* Loading state—let’s center it and keep the text dark for contrast while the data loads. Scales down for mobile. */
 .forecast-loading {
   text-align: center;
   color: #333;
+  padding: 1rem 0;
 }
 
-/* The loading SVG animation—small and spinny, just enough to say “hang on, we’re working on it!” */
+/* The loading SVG animation—small and spinny, just enough to say “hang on, we’re working on it!” Adjusts size for mobile. */
 .weather-loading-svg {
-  width: 20px;
-  height: 20px;
-  margin: 0 auto 8px;
+  width: 16px; 
+  height: 16px;
+  margin: 0 auto 0.5rem;
   animation: spin 1s linear infinite;
 }
 
@@ -100,10 +102,72 @@
   fill: currentColor;
 }
 
-/* Error message—red to grab attention if something goes wrong. */
+/* Error message—red to grab attention if something goes wrong. Scales for readability on all devices. */
 .weather-error {
   color: #ef4444;
-  font-size: 14px;
-  margin-top: 8px;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
   text-align: center;
+}
+
+/* Media Queries for Larger Screens */
+/* Tablets and up (min-width: 480px) - Start improving layout */
+@media (min-width: 480px) {
+  .forecast-container {
+    padding: 1.5rem;
+    min-height: 180px;
+  }
+  .forecast-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .forecast-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+  }
+  .forecast-day {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+  .forecast-day-date {
+    font-size: 1rem;
+  }
+  .forecast-day-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .forecast-day-temp {
+    font-size: 1.125rem;
+  }
+  .forecast-day-temp-details {
+    font-size: 0.875rem;
+  }
+  .weather-loading-svg {
+    width: 18px;
+    height: 18px;
+  }
+  .weather-error {
+    font-size: 1rem;
+  }
+}
+/* Large desktops (min-width: 1024px) - Fine-tune for extra space */
+@media (min-width: 1024px) {
+  .forecast-container {
+    padding: 2.5rem;
+  }
+  .forecast-grid {
+    gap: 2rem;
+  }
+  .forecast-day {
+    padding: 2rem;
+  }
+  .forecast-day-icon {
+    width: 56px;
+    height: 56px;
+  }
+  .forecast-day-temp {
+    font-size: 1.5rem;
+  }
+  .forecast-day-temp-details {
+    font-size: 1.125rem;
+  }
 }

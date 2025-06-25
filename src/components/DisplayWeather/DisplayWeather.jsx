@@ -138,23 +138,21 @@ function DisplayWeather() {
       
               <div className='weather-current-right'>
                 <div className='weather-current-card'>
-                  <p className="weather-current-details">
+                  <div className="weather-current-details"> {/* Changed from <p> to <div> */}
                     <ReactSVG src={humidityIcon} className="weather-detail-icon" /> Humidity: {weather.humidity}%
-                  </p>
-                  <p className="weather-current-details">
+                  </div>
+                  <div className="weather-current-details"> {/* Changed from <p> to <div> */}
                     <ReactSVG src={windSpeedIcon} className="weather-detail-icon" /> Wind Speed: {weather.wind_speed} m/s
-                  </p>
-                  <p className="weather-current-details">
+                  </div>
+                  <div className="weather-current-details"> {/* Changed from <p> to <div> */}
                     <ReactSVG src={pressureIcon} className="weather-detail-icon" /> Pressure: {weather.pressure} hPa
-                  </p>
-                  <p className="weather-current-details">
+                  </div>
+                  <div className="weather-current-details"> {/* Changed from <p> to <div> */}
                     <ReactSVG src={uvIndexIcon} className="weather-detail-icon" /> UV Index: {weather.uvi}
-                  </p>
-                  <p className="weather-current-details">
+                  </div>
+                  <div className="weather-current-details"> {/* Changed from <p> to <div> */}
                     <ReactSVG src={visibility} className="weather-detail-icon" /> Visibility: {weather.visibility}
-                  </p>
-
-
+                  </div>
                 </div>
               </div>
 
