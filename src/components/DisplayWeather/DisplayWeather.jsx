@@ -47,7 +47,7 @@ function DisplayWeather() {
 
     try {
       const geoResponse = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=1&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&limit=1&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}`
       );
 
       if (!geoResponse.data.length) {
