@@ -29,7 +29,22 @@ Welcome to **Weather Reporter**, a sleek and responsive weather application buil
 
 ## Installation
 
-### Clone the Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/your-username/weather-reporter.git
 cd weather-reporter
+```
+### 2. Install Dependencies
+```bash
+npm install
+```
+### 3. Set Up Environment Variables
+```bash
+Create a .env file in the root directory.
+Add your OpenWeatherMap API key:
+VITE_OPENWEATHER_API_KEY=your-api-key-here
+```
+### 4. Run the Application
+```bash
+npm run dev
+```
